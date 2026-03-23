@@ -1,0 +1,38 @@
+# 上海闵行选校购房助手 - 开发文档 (DEVELOPMENT.md)
+
+## 1. 项目背景
+本项目专为在上海闵行区持有**集体户口**（紫藤社区）的家长设计，旨在解决**外省转学**（如嘉善实验二小四年级转入）及**500万预算**内购置二梯队学区房的决策问题。
+
+## 2. 技术架构
+- **前端框架**: 纯原生 HTML5 / Vanilla CSS3 / JavaScript (ES6+)。
+- **视觉风格**: 现代毛玻璃效果 (Glassmorphism)，响应式布局。
+- **地图集成**: 
+  - 库: [Leaflet.js](https://leafletjs.com/) (v1.9.4)。
+  - CDN: 为了确保国内访问稳定性，使用了 [BootCDN](https://www.bootcdn.cn/)。
+  - 地图源: **高德地图 (Amap)** 瓦片服务，适配国内网络环境。
+- **数据管理**: `data.js` 模块化存储学校坐标、对口板块、政策建议及招生办电话。
+
+## 3. 核心功能实现
+### 3.1 入学优先级计算器
+根据上海“人户一致”原则，通过 `app.js` 逻辑实时计算购房前后、入户年限对入学优先级的修正建议。
+
+### 3.2 选校与地图联动
+用户在列表中勾选二梯队学校后，地图通过 `map.panTo()` 与自定义红色/蓝色 Marker 实现位置可视化。
+
+### 3.3 咨询话术助手
+针对“外省转学”及“五年级（毕业年级）转学”的特殊性，整理了三步走咨询提纲，集成在 UI 显要位置。
+
+## 4. 关键问题排查 (Troubleshooting)
+- **地图空白问题**: 最初使用 OpenStreetMap 导致加载失败。已切换为高德瓦片源并强制指定 CSS 容器高度 (`#map { height: 400px !important; }`)。
+- **CDN 稳定性**: 将 Leaflet 的 JS/CSS 从 `unpkg.com` 迁移至国内镜像，解决加载延迟。
+
+## 5. 项目维护与更新
+### 5.1 数据更新
+若学校招生电话或对口政策变动，仅需修改 `e:\AI\School\data.js` 中的常量即可自动生效。
+
+### 5.2 GitHub 部署
+项目已关联仓库：`git@github.com:xiaojun1604/Shanghai-School-Finder.git`。
+发布至 GitHub Pages 路径：`Settings -> Pages -> Branch: main -> Save`。
+
+---
+*本项目由 Antigravity 辅助完成于 2026年3月。*
