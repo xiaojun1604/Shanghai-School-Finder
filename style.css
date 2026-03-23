@@ -168,6 +168,40 @@ h1 {
     background: #0d2540;
 }
 
+/* Script Helper Styles */
+.script-box {
+    background: rgba(26, 58, 95, 0.03);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-top: 1rem;
+}
+
+.script-step {
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+.script-content {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    color: #444;
+    font-style: italic;
+}
+
+.script-tip {
+    font-size: 0.85rem;
+    background: #fff8e1;
+    padding: 0.8rem;
+    border-radius: 8px;
+    color: #856404;
+}
+
 @media (max-width: 900px) {
     .dashboard {
         grid-template-columns: 1fr;
