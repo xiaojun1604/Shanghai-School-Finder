@@ -48,6 +48,7 @@ function renderSchools() {
             <div class="school-details">
                 <p><strong>所属板块：</strong> ${school.district}</p>
                 <p><strong>对应初中：</strong> ${school.middleSchool}</p>
+                <p><strong>招生办电话：</strong> <span style="color: var(--secondary); font-weight: 600;">${school.contact}</span></p>
                 <p><strong>优点：</strong> ${school.pros}</p>
             </div>
             <div class="housing-info">
