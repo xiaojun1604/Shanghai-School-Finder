@@ -54,7 +54,27 @@ function renderSchools() {
             <div class="housing-info">
                 <p><strong>购房提示：</strong> <span class="budget-tag">${school.housing}</span></p>
             </div>
+            <div class="notes-section">
+                <textarea class="school-note" data-name="${school.name}" placeholder="点此备注转学情况（如：五年级学额、咨询记录等）..."></textarea>
+                <div class="note-status"></div>
+            </div>
         `;
+
+        const textarea = item.querySelector('.school-note');
+        const savedNotes = JSON.parse(localStorage.getItem('minhang_school_notes') || '{}');
+        textarea.value = savedNotes[school.name] || '';
+
+        // Auto-save on input change
+        textarea.addEventListener('input', (e) => {
+            const currentNotes = JSON.parse(localStorage.getItem('minhang_school_notes') || '{}');
+            currentNotes[school.name] = e.target.value;
+            localStorage.setItem('minhang_school_notes', JSON.stringify(currentNotes));
+
+            const status = item.querySelector('.note-status');
+            status.textContent = '已保存';
+            status.style.opacity = '1';
+            setTimeout(() => { status.style.opacity = '0'; }, 1000);
+        });
 
         listContainer.appendChild(item);
     });
