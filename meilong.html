@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梅陇板块 二梯队房产专属筛选器 - 寻找性价比之王</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .filter-bar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-card.king-card {
+            border: 2px solid var(--accent);
+            background: linear-gradient(to bottom, #ffffff, #fffdf5);
+        }
+
+        .king-badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.8rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .property-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        .property-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .stat-item strong {
+            color: #333;
+        }
+
+        .property-school {
+            background: rgba(26, 58, 95, 0.05);
+            padding: 0.8rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .property-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            border-top: 1px dashed #eee;
+            padding-top: 1rem;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-back:hover {
+            text-decoration: underline;
+        }
+
+        .price-highlight {
+            color: var(--accent);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="nav-back">← 返回主选校大盘</a>
+            <h1>🏡 梅陇板块 房产专属筛选器</h1>
+            <p>为您锁定：对口二梯队初中 + 80㎡以上 + 2009年后建成的 <strong>性价比之王</strong></p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="filter-bar">
+            <div class="filter-group">
+                <label for="filter-school">对口初中梯队:</label>
+                <select id="filter-school">
+                    <option value="all">所有</option>
+                    <option value="2nd" selected>二梯队及以上 (严卡刚需)</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-size">产证面积:</label>
+                <select id="filter-size">
+                    <option value="all">所有</option>
+                    <option value="80" selected>80㎡ 以上 (严卡刚需)</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-year">房龄要求:</label>
+                <select id="filter-year">
+                    <option value="all">所有房龄</option>
+                    <option value="2009" selected>2009年后建成 (弹性加分)</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="property-results" class="property-grid">
+            <!-- Properties will be injected here via meilong_app.js -->
+        </section>
+    </main>
+
+    <script type="module" src="meilong_app.js"></script>
+</body>
+
+</html>
