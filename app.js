@@ -43,7 +43,7 @@ function renderSchools() {
                     <input type="checkbox" class="school-checkbox" data-index="${index}">
                     <div class="school-name">${school.name}</div>
                 </div>
-                <div class="tier-tag">${school.tier}梯队</div>
+                <div class="tier-tag">${school.tier}梯队 | ${school.type}</div>
             </div>
             <div class="school-details">
                 <p><strong>所属板块：</strong> ${school.district}</p>
