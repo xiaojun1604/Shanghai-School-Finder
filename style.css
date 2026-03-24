@@ -202,6 +202,42 @@ h1 {
     color: #856404;
 }
 
+/* Notes Section Styles */
+.notes-section {
+    margin-top: 1rem;
+    position: relative;
+}
+
+.school-note {
+    width: 100%;
+    min-height: 80px;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.85rem;
+    color: #555;
+    background: #fafafa;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+.school-note:focus {
+    outline: none;
+    border-color: var(--secondary);
+    background: white;
+}
+
+.note-status {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 0.7rem;
+    color: #2e7d32;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
 @media (max-width: 900px) {
     .dashboard {
         grid-template-columns: 1fr;
